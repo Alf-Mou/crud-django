@@ -7,5 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('home', home),
-    path('usuario/criar', criar_usuario),
+    path('usuario/criar', criar_usuario, name="cadastra_usuario"),
 ]

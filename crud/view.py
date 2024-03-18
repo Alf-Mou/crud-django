@@ -13,21 +13,25 @@ def criar_usuario(request):
         return render(request, "cadastra.html")
 
     elif request.method == "POST":
-        post = request.POST
+        print(request.POST)
+        post=request.POST
 
-    user = Usuario.objects.create(
-        login=request.post.get("login"),
-        senha=post.get("senha")
-    )
-    user.save()
+        user = Usuario.objects.create(
+            login=post.get("login"),
+            senha=post.get("senha")
+        )
+        user.save()
 
-    pessoa = Pessoa.objects.create(
-        nome=request.post.get("nome"),
-        idade=request.post.get("idade"),
-        cpf=request.post.get("cpf"),
-        usuario=user
-    )
-    pessoa.save()
+        pessoa = Pessoa.objects.create(
+            nome=post.get("nome"),
+            idade=post.get("idade"),
+            cpf=post.get("cpf"),
+            usuario=user
+        )
+        pessoa.save()
 
-    return HttpResponse(status=201)
+        return HttpResponse(status=201)
     
+    return HttpResponse(status=405)
+
+

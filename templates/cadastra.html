@@ -1,15 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form>
-        <input type="text" id="login"/>
-        <input type="password" if="senha"/>
-        <button>Enviar!!!!!!!!!!!!!!!!!!!!!!</button>
-    </form>
-</body>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cria usuario</title>
+    </head>
+    
+    <body>
+        <form method="post" action="{% url 'cadastra_usuario' %}">
+            {% csrf_token %}
+
+            <div style="margin-bottom: 1rem;">
+                <label>Nome</label>
+                <input type="text" name="nome"/>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+                <label>Idade</label>
+                <input type="text" name="idade"/>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <label>Cpf</label>
+                <input type="text" name="cpf"/>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+                <label>Login</label>
+                <input type="text" name="login"/>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+                <label>Senha</label>
+                <input type="password" name="senha"/>
+            </div>
+
+            <button>
+                Enviar
+            </button>
+        </form>
+    </body>
 </html>
